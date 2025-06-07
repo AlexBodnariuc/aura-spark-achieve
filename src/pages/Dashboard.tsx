@@ -4,9 +4,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ProgressCard } from '@/components/gamification/ProgressCard';
 import { AchievementCard } from '@/components/gamification/AchievementCard';
 import { UserPreferences } from '@/components/gamification/UserPreferences';
+import { ProgressTester } from '@/components/gamification/ProgressTester';
 import { useProgress } from '@/hooks/useProgress';
 import { useAchievements } from '@/hooks/useAchievements';
-import { Trophy, Target, Settings } from 'lucide-react';
+import { Trophy, Target, Settings, Zap } from 'lucide-react';
 
 export const Dashboard: React.FC = () => {
   const { progress, isLoading: progressLoading } = useProgress();
@@ -24,7 +25,7 @@ export const Dashboard: React.FC = () => {
       </div>
 
       <Tabs defaultValue="progress" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="progress" className="flex items-center gap-2">
             <Target className="h-4 w-4" />
             Progress
@@ -32,6 +33,10 @@ export const Dashboard: React.FC = () => {
           <TabsTrigger value="achievements" className="flex items-center gap-2">
             <Trophy className="h-4 w-4" />
             Achievements
+          </TabsTrigger>
+          <TabsTrigger value="testing" className="flex items-center gap-2">
+            <Zap className="h-4 w-4" />
+            Testing
           </TabsTrigger>
           <TabsTrigger value="settings" className="flex items-center gap-2">
             <Settings className="h-4 w-4" />
@@ -74,6 +79,23 @@ export const Dashboard: React.FC = () => {
                   <AchievementCard key={achievement.id} achievement={achievement} />
                 ))}
               </div>
+            )}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="testing" className="space-y-6">
+          <div className="grid gap-6 md:grid-cols-2">
+            <ProgressTester />
+            
+            {progress && (
+              <ProgressCard 
+                progress={{
+                  totalXp: progress.total_xp,
+                  currentLevel: progress.current_level,
+                  currentStreak: progress.current_streak,
+                  longestStreak: progress.longest_streak,
+                }}
+              />
             )}
           </div>
         </TabsContent>

@@ -17,7 +17,7 @@ export const useProgress = () => {
         .from('user_progress')
         .select('*')
         .eq('email_session_id', user.id)
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
       return data;

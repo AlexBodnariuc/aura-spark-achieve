@@ -72,10 +72,10 @@ export const UserPreferences: React.FC = () => {
     learning_style: preferences?.learning_style || 'visual',
     difficulty_preference: preferences?.difficulty_preference || 'beginner',
     daily_goal: preferences?.daily_goal || 30,
-    reminder_enabled: preferences?.reminder_enabled || true,
+    reminder_enabled: preferences?.reminder_enabled ?? true,
     reminder_time: preferences?.reminder_time || '09:00:00',
     theme_preference: preferences?.theme_preference || 'system',
-    notifications_enabled: preferences?.notifications_enabled || true,
+    notifications_enabled: preferences?.notifications_enabled ?? true,
   });
 
   React.useEffect(() => {
@@ -84,10 +84,10 @@ export const UserPreferences: React.FC = () => {
         learning_style: preferences.learning_style || 'visual',
         difficulty_preference: preferences.difficulty_preference || 'beginner',
         daily_goal: preferences.daily_goal || 30,
-        reminder_enabled: preferences.reminder_enabled || true,
+        reminder_enabled: preferences.reminder_enabled ?? true,
         reminder_time: preferences.reminder_time || '09:00:00',
         theme_preference: preferences.theme_preference || 'system',
-        notifications_enabled: preferences.notifications_enabled || true,
+        notifications_enabled: preferences.notifications_enabled ?? true,
       });
     }
   }, [preferences]);
