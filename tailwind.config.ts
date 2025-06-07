@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -62,23 +61,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				},
-				// Quiz Academy theme colors
-				'quiz-purple': 'hsl(262 83% 58%)',
-				'quiz-purple-dark': 'hsl(284 88% 42%)',
-				'quiz-blue': 'hsl(240 100% 27%)',
-				'quiz-cyan': 'hsl(186 100% 50%)',
-				'success-green': 'hsl(var(--success-green))',
-				'warning-orange': 'hsl(var(--warning-orange))'
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
-			},
-			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
-				inter: ['Inter', 'system-ui', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {
@@ -96,20 +84,11 @@ export default {
 					to: {
 						height: '0'
 					}
-				},
-				'glow': {
-					'0%, 100%': {
-						boxShadow: '0 0 20px rgba(139, 92, 246, 0.3)'
-					},
-					'50%': {
-						boxShadow: '0 0 40px rgba(139, 92, 246, 0.6)'
-					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'glow': 'glow 2s ease-in-out infinite'
+				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
 		}
 	},
