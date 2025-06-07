@@ -6,17 +6,15 @@ import { Dashboard } from './Dashboard';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { 
-  Stethoscope, 
-  BookOpen, 
-  Users, 
-  Award, 
-  ChevronRight, 
+  Plus, 
+  Trophy, 
+  Brain, 
   Play,
-  Star,
+  RotateCcw,
+  ArrowRight,
   CheckCircle,
-  Brain,
-  Heart,
-  Shield
+  Clock,
+  Award
 } from 'lucide-react';
 
 export const GamifiedIndex: React.FC = () => {
@@ -24,214 +22,76 @@ export const GamifiedIndex: React.FC = () => {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-medical-light-blue via-white to-blue-50">
+      <div className="min-h-screen quiz-gradient">
         <Header />
         
         {/* Hero Section */}
-        <section className="relative py-20 px-4">
+        <section className="relative py-20 px-6">
           <div className="container mx-auto text-center">
             <div className="max-w-4xl mx-auto">
-              <div className="mb-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-medical-blue/20 text-medical-blue text-sm font-medium">
-                  <Stethoscope className="h-4 w-4" />
-                  Medical Learning Platform
-                </div>
-              </div>
-              
-              <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Master
-                <span className="medical-gradient bg-clip-text text-transparent"> Medical </span>
-                Knowledge
+              <h1 className="text-6xl md:text-8xl font-bold text-gradient mb-6 leading-tight">
+                Quiz Academy
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Advance your medical expertise with our comprehensive learning platform. 
-                Interactive courses, real case studies, and peer collaboration.
+              <p className="text-2xl md:text-3xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Îmbunătățește-ți cunoștințele și câștigă XP!
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button size="lg" className="medical-gradient text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-medical hover:shadow-lg transition-all">
-                  <Play className="h-5 w-5 mr-2" />
-                  Start Learning
-                </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-medical-blue text-medical-blue hover:bg-medical-light-blue rounded-xl">
-                  Watch Demo
-                  <ChevronRight className="h-5 w-5 ml-2" />
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <Button size="lg" className="btn-cyan px-10 py-4 text-xl font-bold rounded-2xl shadow-glow hover:shadow-card transition-all">
+                  <Play className="h-6 w-6 mr-3" />
+                  Începe Acum
                 </Button>
               </div>
-            </div>
-          </div>
-          
-          {/* Floating Medical Icons */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 left-10 text-medical-blue/20 animate-pulse">
-              <Heart className="h-8 w-8" />
-            </div>
-            <div className="absolute top-40 right-20 text-medical-teal/20 animate-pulse delay-1000">
-              <Brain className="h-6 w-6" />
-            </div>
-            <div className="absolute bottom-40 left-20 text-medical-blue/20 animate-pulse delay-500">
-              <Shield className="h-7 w-7" />
             </div>
           </div>
         </section>
 
         {/* Features Section */}
-        <section className="py-20 px-4 bg-white">
+        <section className="py-20 px-6">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Why Choose MedMentor?
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Our platform combines cutting-edge technology with proven medical education methods
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Card className="text-center border-0 shadow-medical hover:shadow-lg transition-all duration-300 group">
-                <CardHeader className="pb-4">
-                  <div className="mx-auto mb-4 p-3 bg-medical-light-blue rounded-2xl group-hover:bg-medical-blue group-hover:text-white transition-all">
-                    <BookOpen className="h-8 w-8 text-medical-blue group-hover:text-white" />
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <Card className="card-gradient shadow-card hover:shadow-glow transition-all duration-300 group border-0">
+                <CardHeader className="pb-4 text-center">
+                  <div className="mx-auto mb-6 p-4 bg-quiz-cyan/20 rounded-3xl group-hover:bg-quiz-cyan/30 transition-all border border-quiz-cyan/30">
+                    <Plus className="h-10 w-10 text-quiz-cyan" />
                   </div>
-                  <CardTitle className="text-xl font-semibold">Interactive Courses</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-white">Creează Quiz Nou</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 leading-relaxed">
-                    Comprehensive medical courses with interactive content, simulations, and real-world scenarios
+                <CardContent className="text-center">
+                  <p className="text-white/70 leading-relaxed text-lg">
+                    Generează quiz-uri personalizate din fișierele tale PDF
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="text-center border-0 shadow-medical hover:shadow-lg transition-all duration-300 group">
-                <CardHeader className="pb-4">
-                  <div className="mx-auto mb-4 p-3 bg-medical-light-blue rounded-2xl group-hover:bg-medical-teal group-hover:text-white transition-all">
-                    <Users className="h-8 w-8 text-medical-teal group-hover:text-white" />
+              <Card className="card-gradient shadow-card hover:shadow-glow transition-all duration-300 group border-0">
+                <CardHeader className="pb-4 text-center">
+                  <div className="mx-auto mb-6 p-4 bg-quiz-purple/30 rounded-3xl group-hover:bg-quiz-purple/40 transition-all border border-quiz-purple/40">
+                    <Trophy className="h-10 w-10 text-quiz-purple" />
                   </div>
-                  <CardTitle className="text-xl font-semibold">Expert Mentorship</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-white">Quiz-uri Disponibile</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 leading-relaxed">
-                    Connect with experienced medical professionals and get personalized guidance
+                <CardContent className="text-center">
+                  <p className="text-white/70 leading-relaxed text-lg">
+                    Continuă quiz-urile în curs sau începe unele noi
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="text-center border-0 shadow-medical hover:shadow-lg transition-all duration-300 group">
-                <CardHeader className="pb-4">
-                  <div className="mx-auto mb-4 p-3 bg-medical-light-blue rounded-2xl group-hover:bg-medical-blue group-hover:text-white transition-all">
-                    <Award className="h-8 w-8 text-medical-blue group-hover:text-white" />
+              <Card className="card-gradient shadow-card hover:shadow-glow transition-all duration-300 group border-0">
+                <CardHeader className="pb-4 text-center">
+                  <div className="mx-auto mb-6 p-4 bg-gradient-to-r from-pink-500/20 to-purple-600/20 rounded-3xl group-hover:from-pink-500/30 group-hover:to-purple-600/30 transition-all border border-pink-500/30">
+                    <Brain className="h-10 w-10 text-pink-400" />
                   </div>
-                  <CardTitle className="text-xl font-semibold">Certifications</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-white">Medmentor AI</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 leading-relaxed">
-                    Earn recognized certifications and track your professional development progress
+                <CardContent className="text-center">
+                  <p className="text-white/70 leading-relaxed text-lg">
+                    Ajutorul tău AI pentru pregătirea admiterii la medicină
                   </p>
                 </CardContent>
               </Card>
-
-              <Card className="text-center border-0 shadow-medical hover:shadow-lg transition-all duration-300 group">
-                <CardHeader className="pb-4">
-                  <div className="mx-auto mb-4 p-3 bg-medical-light-blue rounded-2xl group-hover:bg-medical-teal group-hover:text-white transition-all">
-                    <CheckCircle className="h-8 w-8 text-medical-teal group-hover:text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-semibold">Progress Tracking</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 leading-relaxed">
-                    Monitor your learning journey with detailed analytics and achievement systems
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="py-20 px-4 medical-gradient text-white">
-          <div className="container mx-auto">
-            <div className="grid md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">15k+</div>
-                <div className="text-lg opacity-90">Medical Students</div>
-              </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
-                <div className="text-lg opacity-90">Expert Mentors</div>
-              </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">1200+</div>
-                <div className="text-lg opacity-90">Courses Available</div>
-              </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">98%</div>
-                <div className="text-lg opacity-90">Success Rate</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="py-20 px-4 bg-gray-50">
-          <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Students Say</h2>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  name: "Dr. Sarah Johnson",
-                  role: "Resident Physician",
-                  content: "MedMentor transformed my learning experience. The interactive courses and expert mentorship helped me excel in my residency.",
-                  rating: 5
-                },
-                {
-                  name: "Alex Chen",
-                  role: "Medical Student",
-                  content: "The progress tracking and gamification made studying enjoyable. I improved my exam scores significantly.",
-                  rating: 5
-                },
-                {
-                  name: "Dr. Michael Rodriguez",
-                  role: "Attending Physician",
-                  content: "As a mentor on this platform, I've seen firsthand how effective the learning methodology is for students.",
-                  rating: 5
-                }
-              ].map((testimonial, index) => (
-                <Card key={index} className="border-0 shadow-medical">
-                  <CardContent className="p-6">
-                    <div className="flex mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-gray-600 mb-4 leading-relaxed">"{testimonial.content}"</p>
-                    <div>
-                      <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-medical-blue">{testimonial.role}</div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 px-4 bg-white">
-          <div className="container mx-auto text-center">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Ready to Advance Your Medical Career?
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                Join thousands of medical professionals who are already accelerating their learning with MedMentor
-              </p>
-              <Button size="lg" className="medical-gradient text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-medical">
-                Get Started Today
-              </Button>
             </div>
           </div>
         </section>
@@ -240,9 +100,93 @@ export const GamifiedIndex: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen quiz-gradient">
       <Header />
-      <Dashboard />
+      
+      <main className="container mx-auto px-6 py-8">
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          
+          {/* Left Column - Create Quiz */}
+          <Card className="card-gradient shadow-card border-0 h-fit">
+            <CardHeader className="text-center pb-6">
+              <div className="mx-auto mb-6 p-6 bg-quiz-cyan/20 rounded-3xl border border-quiz-cyan/30">
+                <Plus className="h-12 w-12 text-quiz-cyan" />
+              </div>
+              <CardTitle className="text-3xl font-bold text-white mb-4">Creează Quiz Nou</CardTitle>
+              <p className="text-white/70 text-lg">Generează quiz-uri personalizate din fișierele tale PDF</p>
+            </CardHeader>
+          </Card>
+
+          {/* Right Column - Available Quizzes */}
+          <div className="lg:col-span-2">
+            <Card className="card-gradient shadow-card border-0">
+              <CardHeader className="flex flex-row items-center justify-between pb-6">
+                <div className="flex items-center gap-4">
+                  <div className="p-4 bg-gradient-to-r from-pink-500/20 to-purple-600/20 rounded-2xl border border-pink-500/30">
+                    <Trophy className="h-8 w-8 text-pink-400" />
+                  </div>
+                  <CardTitle className="text-3xl font-bold text-white">Quiz-uri Disponibile</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-white/70 text-lg mb-6">Continuă quiz-urile în curs sau începe unele noi</p>
+                
+                {/* Quiz Items */}
+                <div className="space-y-4">
+                  {[
+                    { name: 'Subiect 6', status: 'Completat', score: '16%', action: 'Reîncercare', color: 'green' },
+                    { name: 'Subiect 5', status: 'Completat', score: '14%', action: 'Reîncercare', color: 'green' },
+                    { name: 'Subiect 4', status: 'In progres', score: null, action: 'Continuă', color: 'orange' }
+                  ].map((quiz, index) => (
+                    <div key={index} className="flex items-center justify-between p-4 glass-card rounded-xl border border-white/10">
+                      <div className="flex items-center gap-4">
+                        <div className="w-3 h-3 rounded-full bg-white/20"></div>
+                        <div>
+                          <h3 className="text-white font-semibold text-lg">{quiz.name}</h3>
+                          <div className="flex items-center gap-3 mt-1">
+                            <span className={`text-sm px-2 py-1 rounded-full ${
+                              quiz.color === 'green' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'
+                            }`}>
+                              {quiz.status}
+                            </span>
+                            {quiz.score && (
+                              <span className="text-white/60 text-sm">Scor: {quiz.score}</span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <Button 
+                        className="btn-cyan px-6 py-2 rounded-xl font-semibold"
+                        size="sm"
+                      >
+                        {quiz.action === 'Reîncercare' && <RotateCcw className="h-4 w-4 mr-2" />}
+                        {quiz.action === 'Continuă' && <ArrowRight className="h-4 w-4 mr-2" />}
+                        {quiz.action}
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Bottom Section - Medmentor AI */}
+        <Card className="card-gradient shadow-card border-0 mt-8">
+          <CardHeader className="text-center pb-6">
+            <div className="mx-auto mb-6 p-6 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl border border-blue-500/30">
+              <Brain className="h-12 w-12 text-blue-400" />
+            </div>
+            <CardTitle className="text-4xl font-bold text-white mb-4">
+              Medmentor, ajutorul tău AI pentru admitere
+            </CardTitle>
+            <p className="text-white/70 text-xl max-w-2xl mx-auto">
+              Platforma ta pentru pregătirea admiterii la medicină
+            </p>
+          </CardHeader>
+        </Card>
+      </main>
     </div>
   );
 };

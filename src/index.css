@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Medical Mentor Design System */
+/* Quiz Academy / MedMentor Design System */
 
 @layer base {
   :root {
@@ -16,87 +16,86 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 40% 15%;
 
-    --primary: 195 100% 39%; /* Medical blue */
+    --primary: 262 83% 58%; /* Purple primary */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 195 15% 96%;
+    --secondary: 262 15% 96%;
     --secondary-foreground: 210 40% 15%;
 
-    --muted: 195 15% 96%;
+    --muted: 262 15% 96%;
     --muted-foreground: 210 30% 40%;
 
-    --accent: 168 76% 42%; /* Medical teal */
+    --accent: 186 100% 50%; /* Cyan accent */
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 195 100% 39%;
+    --border: 262 20% 82%;
+    --input: 262 20% 82%;
+    --ring: 262 83% 58%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Medical theme specific colors */
-    --medical-blue: 195 100% 39%;
-    --medical-teal: 168 76% 42%;
-    --medical-light-blue: 195 100% 95%;
-    --medical-dark-blue: 195 100% 25%;
+    /* Custom gradient colors */
+    --gradient-start: 262 83% 58%; /* Purple */
+    --gradient-middle: 284 88% 42%; /* Deeper purple */
+    --gradient-end: 240 100% 27%; /* Dark blue */
+    
+    /* Card background with transparency */
+    --card-bg: 262 50% 25%;
+    --card-bg-secondary: 262 40% 30%;
+
     --success-green: 142 71% 45%;
     --warning-orange: 25 95% 53%;
 
-    --sidebar-background: 195 100% 95%;
+    --sidebar-background: 262 50% 95%;
     --sidebar-foreground: 210 40% 15%;
-    --sidebar-primary: 195 100% 39%;
+    --sidebar-primary: 262 83% 58%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 195 15% 90%;
+    --sidebar-accent: 262 15% 90%;
     --sidebar-accent-foreground: 210 40% 15%;
-    --sidebar-border: 214.3 31.8% 85%;
-    --sidebar-ring: 195 100% 39%;
+    --sidebar-border: 262 20% 85%;
+    --sidebar-ring: 262 83% 58%;
   }
 
   .dark {
-    --background: 210 40% 8%;
-    --foreground: 210 40% 98%;
+    --background: 262 50% 8%;
+    --foreground: 262 40% 98%;
 
-    --card: 210 40% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 262 50% 12%;
+    --card-foreground: 262 40% 98%;
 
-    --popover: 210 40% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 262 50% 8%;
+    --popover-foreground: 262 40% 98%;
 
-    --primary: 195 100% 50%;
-    --primary-foreground: 210 40% 8%;
+    --primary: 262 83% 68%;
+    --primary-foreground: 262 50% 8%;
 
-    --secondary: 210 40% 15%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 262 40% 15%;
+    --secondary-foreground: 262 40% 98%;
 
-    --muted: 210 40% 15%;
-    --muted-foreground: 210 40% 65%;
+    --muted: 262 40% 15%;
+    --muted-foreground: 262 40% 65%;
 
-    --accent: 168 76% 50%;
-    --accent-foreground: 210 40% 8%;
+    --accent: 186 100% 60%;
+    --accent-foreground: 262 50% 8%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 262 40% 98%;
 
-    --border: 210 40% 20%;
-    --input: 210 40% 20%;
-    --ring: 195 100% 50%;
+    --border: 262 40% 20%;
+    --input: 262 40% 20%;
+    --ring: 262 83% 68%;
 
-    --medical-blue: 195 100% 50%;
-    --medical-teal: 168 76% 50%;
-    --medical-light-blue: 195 100% 15%;
-    --medical-dark-blue: 195 100% 35%;
-
-    --sidebar-background: 210 40% 12%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 195 100% 50%;
-    --sidebar-primary-foreground: 210 40% 8%;
-    --sidebar-accent: 210 40% 18%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 210 40% 20%;
-    --sidebar-ring: 195 100% 50%;
+    --sidebar-background: 262 50% 12%;
+    --sidebar-foreground: 262 40% 98%;
+    --sidebar-primary: 262 83% 68%;
+    --sidebar-primary-foreground: 262 50% 8%;
+    --sidebar-accent: 262 40% 18%;
+    --sidebar-accent-foreground: 262 40% 98%;
+    --sidebar-border: 262 40% 20%;
+    --sidebar-ring: 262 83% 68%;
   }
 }
 
@@ -108,6 +107,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-middle)) 50%, hsl(var(--gradient-end)) 100%);
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -117,39 +118,48 @@
 }
 
 @layer utilities {
-  .medical-gradient {
-    background: linear-gradient(135deg, hsl(var(--medical-blue)) 0%, hsl(var(--medical-teal)) 100%);
+  .quiz-gradient {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-middle)) 50%, hsl(var(--gradient-end)) 100%);
   }
   
-  .medical-gradient-light {
-    background: linear-gradient(135deg, hsl(var(--medical-light-blue)) 0%, rgba(255, 255, 255, 0.9) 100%);
+  .quiz-gradient-light {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
   }
 
-  .text-medical-blue {
-    color: hsl(var(--medical-blue));
+  .card-gradient {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(124, 58, 237, 0.1) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(167, 139, 250, 0.2);
   }
 
-  .text-medical-teal {
-    color: hsl(var(--medical-teal));
+  .glass-card {
+    background: rgba(139, 92, 246, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(167, 139, 250, 0.2);
   }
 
-  .bg-medical-blue {
-    background-color: hsl(var(--medical-blue));
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .bg-medical-teal {
-    background-color: hsl(var(--medical-teal));
+  .btn-cyan {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: white;
+    border: none;
   }
 
-  .bg-medical-light-blue {
-    background-color: hsl(var(--medical-light-blue));
+  .btn-cyan:hover {
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
   }
 
-  .border-medical-blue {
-    border-color: hsl(var(--medical-blue));
+  .shadow-glow {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
   }
 
-  .shadow-medical {
-    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1), 0 4px 6px -2px rgba(59, 130, 246, 0.05);
+  .shadow-card {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 }
