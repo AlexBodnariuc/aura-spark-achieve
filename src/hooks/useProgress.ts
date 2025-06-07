@@ -13,13 +13,20 @@ export const useProgress = () => {
     queryFn: async () => {
       if (!user?.id) return null;
       
+      console.log('Fetching progress for user:', user.id);
+      
       const { data, error } = await supabase
         .from('user_progress')
         .select('*')
         .eq('email_session_id', user.id)
         .maybeSingle();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error fetching progress:', error);
+        throw error;
+      }
+      
+      console.log('Progress data:', data);
       return data;
     },
     enabled: !!user?.id,
@@ -27,12 +34,20 @@ export const useProgress = () => {
 
   const updateProgressMutation = useMutation({
     mutationFn: async (xpGained: number) => {
-      if (!user?.id) throw new Error('User not authenticated');
+      if (!user?.id) {
+        console.error('No user ID available');
+        throw new Error('User not authenticated');
+      }
+
+      console.log('Updating progress for user:', user.id, 'XP gained:', xpGained);
 
       // Use direct database update instead of RPC for now
       const currentProgress = progress || { total_xp: 0, current_level: 1, current_streak: 0, longest_streak: 0 };
       const newTotalXp = currentProgress.total_xp + xpGained;
       const newLevel = Math.floor(newTotalXp / 1000) + 1;
+
+      console.log('Current progress:', currentProgress);
+      console.log('New total XP:', newTotalXp, 'New level:', newLevel);
 
       const { data, error } = await supabase
         .from('user_progress')
@@ -47,14 +62,20 @@ export const useProgress = () => {
         .select()
         .single();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error updating progress:', error);
+        throw error;
+      }
+
+      console.log('Progress updated successfully:', data);
       return data;
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log('Mutation success, invalidating queries');
       queryClient.invalidateQueries({ queryKey: ['progress', user?.id] });
       toast({
         title: 'Progress Updated!',
-        description: 'You earned XP and your progress has been updated.',
+        description: `You earned ${data.total_xp - (progress?.total_xp || 0)} XP and your progress has been updated.`,
       });
     },
     onError: (error) => {
