@@ -51,7 +51,7 @@ export const GamifiedIndex: React.FC = () => {
         <section className="py-20 px-6">
           <div className="container mx-auto">
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <Card className="card-gradient shadow-card hover:shadow-glow transition-all duration-300 group border-0">
+              <Card className="glass-card shadow-card hover:shadow-glow transition-all duration-300 group border-white/10">
                 <CardHeader className="pb-4 text-center">
                   <div className="mx-auto mb-6 p-4 bg-quiz-cyan/20 rounded-3xl group-hover:bg-quiz-cyan/30 transition-all border border-quiz-cyan/30">
                     <Plus className="h-10 w-10 text-quiz-cyan" />
@@ -65,7 +65,7 @@ export const GamifiedIndex: React.FC = () => {
                 </CardContent>
               </Card>
 
-              <Card className="card-gradient shadow-card hover:shadow-glow transition-all duration-300 group border-0">
+              <Card className="glass-card shadow-card hover:shadow-glow transition-all duration-300 group border-white/10">
                 <CardHeader className="pb-4 text-center">
                   <div className="mx-auto mb-6 p-4 bg-quiz-purple/30 rounded-3xl group-hover:bg-quiz-purple/40 transition-all border border-quiz-purple/40">
                     <Trophy className="h-10 w-10 text-quiz-purple" />
@@ -79,7 +79,7 @@ export const GamifiedIndex: React.FC = () => {
                 </CardContent>
               </Card>
 
-              <Card className="card-gradient shadow-card hover:shadow-glow transition-all duration-300 group border-0">
+              <Card className="glass-card shadow-card hover:shadow-glow transition-all duration-300 group border-white/10">
                 <CardHeader className="pb-4 text-center">
                   <div className="mx-auto mb-6 p-4 bg-gradient-to-r from-pink-500/20 to-purple-600/20 rounded-3xl group-hover:from-pink-500/30 group-hover:to-purple-600/30 transition-all border border-pink-500/30">
                     <Brain className="h-10 w-10 text-pink-400" />
@@ -108,7 +108,7 @@ export const GamifiedIndex: React.FC = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           
           {/* Left Column - Create Quiz */}
-          <Card className="card-gradient shadow-card border-0 h-fit">
+          <Card className="glass-card shadow-card border-white/10 h-fit">
             <CardHeader className="text-center pb-6">
               <div className="mx-auto mb-6 p-6 bg-quiz-cyan/20 rounded-3xl border border-quiz-cyan/30">
                 <Plus className="h-12 w-12 text-quiz-cyan" />
@@ -120,7 +120,7 @@ export const GamifiedIndex: React.FC = () => {
 
           {/* Right Column - Available Quizzes */}
           <div className="lg:col-span-2">
-            <Card className="card-gradient shadow-card border-0">
+            <Card className="glass-card shadow-card border-white/10">
               <CardHeader className="flex flex-row items-center justify-between pb-6">
                 <div className="flex items-center gap-4">
                   <div className="p-4 bg-gradient-to-r from-pink-500/20 to-purple-600/20 rounded-2xl border border-pink-500/30">
@@ -173,7 +173,7 @@ export const GamifiedIndex: React.FC = () => {
         </div>
 
         {/* Bottom Section - Medmentor AI */}
-        <Card className="card-gradient shadow-card border-0 mt-8">
+        <Card className="glass-card shadow-card border-white/10 mt-8">
           <CardHeader className="text-center pb-6">
             <div className="mx-auto mb-6 p-6 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl border border-blue-500/30">
               <Brain className="h-12 w-12 text-blue-400" />
