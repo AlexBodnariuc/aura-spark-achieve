@@ -29,10 +29,23 @@ export const useProgress = () => {
     mutationFn: async (xpGained: number) => {
       if (!user?.id) throw new Error('User not authenticated');
 
-      const { data, error } = await supabase.rpc('update_user_progress', {
-        user_uuid: user.id,
-        xp_gained: xpGained,
-      });
+      // Use direct database update instead of RPC for now
+      const currentProgress = progress || { total_xp: 0, current_level: 1, current_streak: 0, longest_streak: 0 };
+      const newTotalXp = currentProgress.total_xp + xpGained;
+      const newLevel = Math.floor(newTotalXp / 1000) + 1;
+
+      const { data, error } = await supabase
+        .from('user_progress')
+        .upsert({
+          email_session_id: user.id,
+          total_xp: newTotalXp,
+          current_level: newLevel,
+          current_streak: currentProgress.current_streak,
+          longest_streak: currentProgress.longest_streak,
+          last_activity_date: new Date().toISOString().split('T')[0]
+        })
+        .select()
+        .single();
 
       if (error) throw error;
       return data;
